@@ -1,0 +1,11 @@
+{
+    "authenticationMethod": "none",
+    "routes": [
+        {
+            "source": "/v2/info-prod-srv/(.*)",
+            "destination": "backend-api",
+            "csrfProtection": true
+        }
+    ],
+    "welcomeFile": "/Agorainfoprodinfoprodui"
+}

@@ -1,0 +1,44 @@
+<mvc:View controllerName="Agora.infoprod.infoprodui.controller.InfoProdQciMain"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:f="sap.f">
+    <Page id="InfoProdQciMain"
+        showHeader="false">
+        <content>
+            <f:ShellBar title="{i18n>qualiConsult} - {i18n>infoProd}"
+                homeIcon="./img/qualiconsult.png">
+                <f:profile>
+                    <Avatar initials="UI"/>
+                </f:profile>
+            </f:ShellBar>
+            <FlexBox justifyContent="Center">
+                <VBox width="95%" class="sapUiMediumMarginTop">
+                    <smartFilterBar:SmartFilterBar id="sfbSite"
+                        entitySet="Site"
+                        persistencyKey="sfbSite_PersKey"
+                        showFilterConfiguration="false">
+                    </smartFilterBar:SmartFilterBar>
+                    <smartTable:SmartTable id="stSite"
+                        entitySet="Site"
+                        smartFilterId="sfbSite"
+                        tableType="ResponsiveTable"
+                        enableExport="false"
+                        showTablePersonalisation="false">
+                        <Table>
+                            <items>
+                                <ColumnListItem type="Navigation"
+                                    press="onNavToDetails"></ColumnListItem>
+                            </items>
+                        </Table>
+                    </smartTable:SmartTable>
+                </VBox>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>
+
+
+

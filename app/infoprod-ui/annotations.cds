@@ -1,0 +1,1 @@
+using InfoProdSrv as service from '../../srv/data-provider';

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="InfoProdSrv" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Site" EntityType="InfoProdSrv.Site"/>
+                <EntitySet Name="Mission" EntityType="InfoProdSrv.Mission"/>
+            </EntityContainer>
+            <EntityType Name="Site">
+                <Key>
+                    <PropertyRef Name="id_site"/>
+                </Key>
+                <Property Name="id_site" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="code_site" Type="Edm.String" MaxLength="50"/>
+                <Property Name="site" Type="Edm.String" MaxLength="500"/>
+                <Property Name="numero" Type="Edm.String" MaxLength="500"/>
+                <Property Name="voie" Type="Edm.String" MaxLength="500"/>
+                <Property Name="cpladresse" Type="Edm.String" MaxLength="500"/>
+                <Property Name="ville" Type="Edm.String" MaxLength="500"/>
+                <Property Name="codepostal" Type="Edm.String" MaxLength="50"/>
+                <Property Name="pays" Type="Edm.String" MaxLength="500"/>
+                <Property Name="longitude" Type="Edm.String" MaxLength="50"/>
+                <Property Name="latitude" Type="Edm.String" MaxLength="50"/>
+                <Property Name="nbpiece" Type="Edm.Int32"/>
+                <Property Name="id_contact" Type="Edm.Int32"/>
+                <Property Name="nomproprio" Type="Edm.String" MaxLength="50"/>
+                <Property Name="nomlocataire" Type="Edm.String" MaxLength="50"/>
+                <Property Name="email" Type="Edm.String" MaxLength="100"/>
+                <Property Name="adresse_proprio" Type="Edm.String" MaxLength="2000"/>
+                <Property Name="port_locataire" Type="Edm.String" MaxLength="50"/>
+                <Property Name="entree" Type="Edm.DateTimeOffset"/>
+                <Property Name="sortie" Type="Edm.DateTimeOffset"/>
+                <Property Name="edl_entrant" Type="Edm.String" MaxLength="50"/>
+                <Property Name="edl_sortant" Type="Edm.String" MaxLength="50"/>
+                <Property Name="nom_residence" Type="Edm.String" MaxLength="200"/>
+                <Property Name="nature" Type="Edm.Int32"/>
+                <Property Name="type_inspection" Type="Edm.String" MaxLength="100"/>
+                <Property Name="usage" Type="Edm.String" MaxLength="100"/>
+                <Property Name="surface" Type="Edm.Double"/>
+                <Property Name="annee" Type="Edm.Int32"/>
+                <Property Name="batiment" Type="Edm.String" MaxLength="100"/>
+                <Property Name="digicode" Type="Edm.String" MaxLength="50"/>
+                <Property Name="digicode2" Type="Edm.String" MaxLength="50"/>
+                <Property Name="escalier" Type="Edm.String" MaxLength="100"/>
+                <Property Name="etage" Type="Edm.String" MaxLength="100"/>
+                <Property Name="porte" Type="Edm.String" MaxLength="100"/>
+                <Property Name="lotug" Type="Edm.Int32"/>
+                <Property Name="nb_etage" Type="Edm.Int32"/>
+                <Property Name="nb_ss_sol" Type="Edm.Int32"/>
+                <Property Name="nb_cave" Type="Edm.Int32"/>
+                <Property Name="num_cave" Type="Edm.String" MaxLength="50"/>
+                <Property Name="num_cave2" Type="Edm.String" MaxLength="50"/>
+                <Property Name="num_box" Type="Edm.String" MaxLength="50"/>
+                <Property Name="emp_box" Type="Edm.String" MaxLength="10"/>
+                <Property Name="emp_park" Type="Edm.String" MaxLength="10"/>
+                <Property Name="num_park" Type="Edm.String" MaxLength="50"/>
+                <Property Name="chauffage_dpe" Type="Edm.Boolean"/>
+                <Property Name="presence" Type="Edm.String" MaxLength="50"/>
+                <Property Name="rep1" Type="Edm.String" MaxLength="100"/>
+                <Property Name="rep2" Type="Edm.String" MaxLength="100"/>
+                <Property Name="prise_cle" Type="Edm.String" MaxLength="50"/>
+                <Property Name="nom_gardien" Type="Edm.String" MaxLength="100"/>
+                <Property Name="tel_gardien" Type="Edm.String" MaxLength="100"/>
+                <Property Name="rendre_cle" Type="Edm.String" MaxLength="50"/>
+                <Property Name="nom_gardien2" Type="Edm.String" MaxLength="100"/>
+                <Property Name="tel_gardien2" Type="Edm.String" MaxLength="100"/>
+                <Property Name="client_prescripteur" Type="Edm.Boolean"/>
+                <Property Name="observation" Type="Edm.String" MaxLength="2000"/>
+                <Property Name="indication" Type="Edm.String" MaxLength="2000"/>
+            </EntityType>
+            <EntityType Name="Mission">
+                <Property Name="id_mission" Type="Edm.Int64"/>
+                <Property Name="photoObs" Type="Edm.Boolean"/>
+                <Property Name="pagegardephoto" Type="Edm.Boolean"/>
+                <Property Name="agence" Type="Edm.String" MaxLength="360"/>
+                <Property Name="client" Type="Edm.String" MaxLength="100"/>
+                <Property Name="num_contrat" Type="Edm.String" MaxLength="50"/>
+                <Property Name="description" Type="Edm.String" MaxLength="250"/>
+                <Property Name="dateDebut" Type="Edm.DateTimeOffset"/>
+                <Property Name="dateFin" Type="Edm.DateTimeOffset"/>
+            </EntityType>
+            <Annotations Target="InfoProdSrv.Site">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>code_site</PropertyPath>
+                        <PropertyPath>codepostal</PropertyPath>
+                        <PropertyPath>pays</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="id_site"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="code_site"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="site"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="voie"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="cpladresse"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="codepostal"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="InfoProdSrv.Site/id_site">
+                <Annotation Term="Common.Label" String="{i18n>idSite}"/>
+                </Annotations>
+                <Annotations Target="InfoProdSrv.Site/code_site">
+                    <Annotation Term="Common.Label" String="{i18n>codeSite}"/>
+                    </Annotations>
+                    <Annotations Target="InfoProdSrv.Site/site">
+                        <Annotation Term="Common.Label" String="{i18n>libelleSite}"/>
+                        </Annotations>
+                        <Annotations Target="InfoProdSrv.Site/numero">
+                            <Annotation Term="Common.Label" String="{i18n>numero}"/>
+                            </Annotations>
+                            <Annotations Target="InfoProdSrv.Site/voie">
+                                <Annotation Term="Common.Label" String="{i18n>numeroEtVoie}"/>
+                                </Annotations>
+                                <Annotations Target="InfoProdSrv.Site/cpladresse">
+                                    <Annotation Term="Common.Label" String="{i18n>complementAdresse}"/>
+                                    </Annotations>
+                                    <Annotations Target="InfoProdSrv.Site/ville">
+                                        <Annotation Term="Common.Label" String="{i18n>ville}"/>
+                                        </Annotations>
+                                        <Annotations Target="InfoProdSrv.Site/codepostal">
+                                            <Annotation Term="Common.Label" String="{i18n>codePostal}"/>
+                                            </Annotations>
+                                            <Annotations Target="InfoProdSrv.Site/pays">
+                                                <Annotation Term="Common.Label" String="{i18n>pays}"/>
+                                                </Annotations>
+                                                <Annotations Target="InfoProdSrv.Site/longitude">
+                                                    <Annotation Term="Common.Label" String="{i18n>longitude}"/>
+                                                    </Annotations>
+                                                    <Annotations Target="InfoProdSrv.Site/latitude">
+                                                        <Annotation Term="Common.Label" String="{i18n>latitude}"/>
+                                                        </Annotations>
+                                                        <Annotations Target="InfoProdSrv.Site/nbpiece">
+                                                            <Annotation Term="Common.Label" String="{i18n>nombreDePiece}"/>
+                                                            </Annotations>
+                                                            <Annotations Target="InfoProdSrv.Site/id_contact">
+                                                                <Annotation Term="Common.Label" String="{i18n>idContact}"/>
+                                                                </Annotations>
+                                                                <Annotations Target="InfoProdSrv.Site/nomproprio">
+                                                                    <Annotation Term="Common.Label" String="{i18n>nomDuProprietaire}"/>
+                                                                    </Annotations>
+                                                                    <Annotations Target="InfoProdSrv.Site/nomlocataire">
+                                                                        <Annotation Term="Common.Label" String="{i18n>nomDuLocataire}"/>
+                                                                        </Annotations>
+                                                                        <Annotations Target="InfoProdSrv.Site/email">
+                                                                            <Annotation Term="Common.Label" String="{i18n>email}"/>
+                                                                            </Annotations>
+                                                                            <Annotations Target="InfoProdSrv.Site/adresse_proprio">
+                                                                                <Annotation Term="Common.Label" String="{i18n>adresseDuProprietaire}"/>
+                                                                                </Annotations>
+                                                                                <Annotations Target="InfoProdSrv.Site/port_locataire">
+                                                                                    <Annotation Term="Common.Label" String="{i18n>portableDuLocataire}"/>
+                                                                                    </Annotations>
+                                                                                    <Annotations Target="InfoProdSrv.Site/entree">
+                                                                                        <Annotation Term="Common.Label" String="{i18n>dateEntree}"/>
+                                                                                        </Annotations>
+                                                                                        <Annotations Target="InfoProdSrv.Site/sortie">
+                                                                                            <Annotation Term="Common.Label" String="{i18n>dateDeSortie}"/>
+                                                                                            </Annotations>
+                                                                                            <Annotations Target="InfoProdSrv.Site/edl_entrant">
+                                                                                                <Annotation Term="Common.Label" String="{i18n>etatDesLieuxEntrant}"/>
+                                                                                                </Annotations>
+                                                                                                <Annotations Target="InfoProdSrv.Site/edl_sortant">
+                                                                                                    <Annotation Term="Common.Label" String="{i18n>etatDesLieuxSortant}"/>
+                                                                                                    </Annotations>
+                                                                                                    <Annotations Target="InfoProdSrv.Site/nom_residence">
+                                                                                                        <Annotation Term="Common.Label" String="{i18n>nomResidence}"/>
+                                                                                                        </Annotations>
+                                                                                                        <Annotations Target="InfoProdSrv.Site/nature">
+                                                                                                            <Annotation Term="Common.Label" String="{i18n>natureDhabitation}"/>
+                                                                                                            </Annotations>
+                                                                                                            <Annotations Target="InfoProdSrv.Site/type_inspection">
+                                                                                                                <Annotation Term="Common.Label" String="{i18n>typeInspection}"/>
+                                                                                                                </Annotations>
+                                                                                                                <Annotations Target="InfoProdSrv.Site/usage">
+                                                                                                                    <Annotation Term="Common.Label" String="{i18n>typeUsage}"/>
+                                                                                                                    </Annotations>
+                                                                                                                    <Annotations Target="InfoProdSrv.Site/surface">
+                                                                                                                        <Annotation Term="Common.Label" String="{i18n>surface}"/>
+                                                                                                                        </Annotations>
+                                                                                                                        <Annotations Target="InfoProdSrv.Site/annee">
+                                                                                                                            <Annotation Term="Common.Label" String="{i18n>anneeDeConstruction}"/>
+                                                                                                                            </Annotations>
+                                                                                                                            <Annotations Target="InfoProdSrv.Site/batiment">
+                                                                                                                                <Annotation Term="Common.Label" String="{i18n>batiment}"/>
+                                                                                                                                </Annotations>
+                                                                                                                                <Annotations Target="InfoProdSrv.Site/digicode">
+                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>firstDigicode}"/>
+                                                                                                                                    </Annotations>
+                                                                                                                                    <Annotations Target="InfoProdSrv.Site/digicode2">
+                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>secondDigicode}"/>
+                                                                                                                                        </Annotations>
+                                                                                                                                        <Annotations Target="InfoProdSrv.Site/escalier">
+                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>escalier}"/>
+                                                                                                                                            </Annotations>
+                                                                                                                                            <Annotations Target="InfoProdSrv.Site/etage">
+                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>etage}"/>
+                                                                                                                                                </Annotations>
+                                                                                                                                                <Annotations Target="InfoProdSrv.Site/porte">
+                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>porte}"/>
+                                                                                                                                                    </Annotations>
+                                                                                                                                                    <Annotations Target="InfoProdSrv.Site/lotug">
+                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>numberLotUg}"/>
+                                                                                                                                                        </Annotations>
+                                                                                                                                                        <Annotations Target="InfoProdSrv.Site/nb_etage">
+                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>nombreEtage}"/>
+                                                                                                                                                            </Annotations>
+                                                                                                                                                            <Annotations Target="InfoProdSrv.Site/nb_ss_sol">
+                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>nombreDeSousSols}"/>
+                                                                                                                                                                </Annotations>
+                                                                                                                                                                <Annotations Target="InfoProdSrv.Site/nb_cave">
+                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>nombreDeCave}"/>
+                                                                                                                                                                    </Annotations>
+                                                                                                                                                                    <Annotations Target="InfoProdSrv.Site/num_cave">
+                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>numeroCave}"/>
+                                                                                                                                                                        </Annotations>
+                                                                                                                                                                        <Annotations Target="InfoProdSrv.Site/num_cave2">
+                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>autreNumeroCave}"/>
+                                                                                                                                                                            </Annotations>
+                                                                                                                                                                            <Annotations Target="InfoProdSrv.Site/num_box">
+                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>numeroBox}"/>
+                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                <Annotations Target="InfoProdSrv.Site/emp_box">
+                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>emplacementBox}"/>
+                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                    <Annotations Target="InfoProdSrv.Site/emp_park">
+                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>numeroParking}"/>
+                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                        <Annotations Target="InfoProdSrv.Site/num_park">
+                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>emplacementParking}"/>
+                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                            <Annotations Target="InfoProdSrv.Site/chauffage_dpe">
+                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>typeDeChauffageDpe}"/>
+                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                <Annotations Target="InfoProdSrv.Site/presence">
+                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>presence}"/>
+                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                    <Annotations Target="InfoProdSrv.Site/rep1">
+                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>representantOne}"/>
+                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                        <Annotations Target="InfoProdSrv.Site/rep2">
+                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>representantTwo}"/>
+                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                            <Annotations Target="InfoProdSrv.Site/prise_cle">
+                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>prendreLesCles}"/>
+                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                <Annotations Target="InfoProdSrv.Site/nom_gardien">
+                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>nomGardien}"/>
+                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                    <Annotations Target="InfoProdSrv.Site/tel_gardien">
+                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>telephoneGardien}"/>
+                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                        <Annotations Target="InfoProdSrv.Site/rendre_cle">
+                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>rendreLesCles}"/>
+                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                            <Annotations Target="InfoProdSrv.Site/nom_gardien2">
+                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>nomGardienRendreCle}"/>
+                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                <Annotations Target="InfoProdSrv.Site/tel_gardien2">
+                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>telephoneGardienRendreCle}"/>
+                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                    <Annotations Target="InfoProdSrv.Site/client_prescripteur">
+                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>clientPrescripteur}"/>
+                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                        <Annotations Target="InfoProdSrv.Site/observation">
+                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>observation}"/>
+                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                            <Annotations Target="InfoProdSrv.Site/indication">
+                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>indication}"/>
+                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                <Annotations Target="InfoProdSrv.Mission/id_mission">
+                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>idMission}"/>
+                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                    <Annotations Target="InfoProdSrv.Mission/photoObs">
+                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>rapportsPhotosObs}"/>
+                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                        <Annotations Target="InfoProdSrv.Mission/pagegardephoto">
+                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>rapportsAvecPhoto}"/>
+                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                            <Annotations Target="InfoProdSrv.Mission/agence">
+                                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>agence}"/>
+                                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                                <Annotations Target="InfoProdSrv.Mission/client">
+                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>client}"/>
+                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                    <Annotations Target="InfoProdSrv.Mission/num_contrat">
+                                                                                                                                                                                                                                                                        <Annotation Term="Common.Label" String="{i18n>contrat}"/>
+                                                                                                                                                                                                                                                                        </Annotations>
+                                                                                                                                                                                                                                                                        <Annotations Target="InfoProdSrv.Mission/description">
+                                                                                                                                                                                                                                                                            <Annotation Term="Common.Label" String="{i18n>typeDeMission}"/>
+                                                                                                                                                                                                                                                                            </Annotations>
+                                                                                                                                                                                                                                                                            <Annotations Target="InfoProdSrv.Mission/dateDebut">
+                                                                                                                                                                                                                                                                                <Annotation Term="Common.Label" String="{i18n>dateDeDebut}"/>
+                                                                                                                                                                                                                                                                                </Annotations>
+                                                                                                                                                                                                                                                                                <Annotations Target="InfoProdSrv.Mission/dateFin">
+                                                                                                                                                                                                                                                                                    <Annotation Term="Common.Label" String="{i18n>dateDeFin}"/>
+                                                                                                                                                                                                                                                                                    </Annotations>
+                                                                                                                                                                                                                                                                                </Schema>
+                                                                                                                                                                                                                                                                            </edmx:DataServices>
+                                                                                                                                                                                                                                                                        </edmx:Edmx>

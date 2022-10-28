@@ -1,0 +1,160 @@
+{
+    "_version": "1.42.0",
+    "sap.app": {
+        "id": "Agora.infoprod.infoprodui",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.7.6",
+            "toolsId": "7fa83f49-78fc-4a39-ba98-41941e3c5290"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/v2/info-prod-srv/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.102.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "Agora.infoprod.infoprodui.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "Agora.infoprod.infoprodui.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "Homepage",
+                    "pattern": "",
+                    "target": [
+                        "Homepage"
+                    ]
+                },
+                {
+                    "name": "InfoProdQci",
+                    "pattern": "qci",
+                    "target": [
+                        "InfoProdQci"
+                    ]
+                },
+                {
+                    "name": "InfoProdQce",
+                    "pattern": "qce",
+                    "target": [
+                        "InfoProdQce"
+                    ]
+                },
+                {
+                    "name": "QciDetails",
+                    "pattern": "site/{idSite}",
+                    "target": [
+                        "QciDetails"
+                    ]
+                }
+            ],
+            "targets": {
+                "Homepage": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Homepage",
+                    "viewName": "Homepage"
+                },
+                "InfoProdQci": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "InfoProdQciMain",
+                    "viewName": "InfoProdQciMain"
+                },
+                "InfoProdQce": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "InfoProdQceMain",
+                    "viewName": "InfoProdQceMain"
+                },
+                "QciDetails": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "QciDetails",
+                    "viewName": "QciDetails"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "Agora.infoprod.infoprodui.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

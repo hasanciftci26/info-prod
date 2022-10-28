@@ -1,0 +1,43 @@
+<mvc:View controllerName="Agora.infoprod.infoprodui.controller.Homepage"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:f="sap.f">
+    <Page id="Homepage"
+        showHeader="false">
+        <content>
+            <f:ShellBar title="{i18n>qualiConsult} - {i18n>infoProd}"
+                homeIcon="./img/qualiconsult.png">
+                <f:profile>
+                    <Avatar initials="UI"/>
+                </f:profile>
+            </f:ShellBar>
+            <FlexBox justifyContent="Center">
+                <HBox width="95%">
+                    <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginTop tileLayout"
+                        header="{i18n>infoProdQci}"
+                        press="onNavToApplication('InfoProdQci')">
+                        <TileContent footer="{i18n>totalEntries}">
+                            <NumericContent id="numInfoProdQci"/>
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginTop tileLayout"
+                        header="{i18n>infoProdQce}"
+                        press="onNavToApplication('InfoProdQce')">
+                        <TileContent footer="{i18n>totalEntries}">
+                            <NumericContent id="numInfoProdQce"/>
+                        </TileContent>
+                    </GenericTile>
+                </HBox>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>
+
+
+<!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="Site" persistencyKey="SmartFilter_Explored">
+            </smartFilterBar:SmartFilterBar>
+            <smartTable:SmartTable id="LineItemsSmartTable" entitySet="Site" smartFilterId="smartFilterBar" tableType="ResponsiveTable">
+            </smartTable:SmartTable> -->

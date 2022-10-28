@@ -1,0 +1,214 @@
+<mvc:View controllerName="Agora.infoprod.infoprodui.controller.QciDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:smartForm="sap.ui.comp.smartform"
+    xmlns:smartField="sap.ui.comp.smartfield">
+    <Page id="QciDetails"
+        showHeader="false">
+        <content>
+            <f:ShellBar title="{i18n>qualiConsult} - {i18n>infoProd}"
+                homeIcon="./img/qualiconsult.png">
+                <f:profile>
+                    <Avatar initials="UI"/>
+                </f:profile>
+            </f:ShellBar>
+            <FlexBox justifyContent="Center">
+                <VBox width="95%"
+                    class="sapUiMediumMarginTop">
+                    <smartForm:SmartForm id="sfSiteDetails"
+                        editTogglable="false"
+                        editable="true"
+                        title="{i18n>siteDetailsFormTitle}">
+                        <smartForm:layout>
+                            <smartForm:ColumnLayout columnsM="2"
+                                columnsL="2"
+                                columnsXL="2"/>
+                        </smartForm:layout>
+                        <smartForm:Group title="{i18n>dates}">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{entree}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{edl_entrant}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title=" ">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{sortie}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{edl_sortant}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title="{i18n>locataires}">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nomproprio}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nomlocataire}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{email}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title=" ">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{adresse_proprio}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{port_locataire}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{id_contact}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title="{i18n>diagnostiquer}">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{site}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nbpiece}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title=" ">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value=""/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title="{i18n>adresse}">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{latitude}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{id_site}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{voie}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{cpladresse}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{codepostal}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{pays}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title=" ">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{longitude}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{code_site}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{ville}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title="{i18n>precisions}">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nom_residence}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{surface}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{digicode}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{digicode2}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nb_etage}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nb_cave}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{num_box}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{emp_park}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement label="{i18n>chauffageDpe}">
+                                <RadioButtonGroup selectedIndex="{= ${chauffage_dpe} ? 0:1}"
+                                    columns="2"
+                                    select="onChauffageSelection">
+                                    <RadioButton text="{i18n>collectif}"/>
+                                    <RadioButton text="{i18n>individuel}" class="sapUiTinyMarginBegin"/>
+                                </RadioButtonGroup>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title=" ">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nature}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{type_inspection}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{usage}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{annee}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{batiment}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{escalier}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{etage}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{porte}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{lotug}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nb_ss_sol}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nb_cave}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{num_cave2}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{emp_box}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{num_park}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                    </smartForm:SmartForm>
+                </VBox>
+            </FlexBox>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <content>
+                    <ToolbarSpacer/>
+                    <Button type="Accept"
+                        text="{i18n>enregistrer}"
+                        press="onSaveForm">
+                        <layoutData>
+                            <OverflowToolbarLayoutData priority="NeverOverflow" />
+                        </layoutData>
+                    </Button>
+                    <Button type="Reject"
+                        text="{i18n>annuler}">
+                        <layoutData>
+                            <OverflowToolbarLayoutData priority="NeverOverflow" />
+                        </layoutData>
+                    </Button>
+                </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

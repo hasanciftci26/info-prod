@@ -1,0 +1,111 @@
+_schema-version: "3.1"
+ID: info-prod
+description: A simple CAP project.
+version: 1.0.0
+modules:
+- name: info-prod-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: info-prod-db
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+  build-parameters:
+    builder: npm-ci
+- name: info-prod-db-deployer
+  type: hdb
+  path: db
+  requires:
+  - name: info-prod-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: info-prod-app
+  type: approuter.nodejs
+  path: app
+  requires:
+  - name: info-prod_html_repo_runtime
+  - name: srv-api
+    group: destinations
+    properties:
+      forwardAuthToken: true
+      name: backend-api
+      url: ~{srv-url}
+  - name: info-prod-destination-service
+    group: destinations
+    properties:
+      forwardAuthToken: false
+      name: ui5
+      url: https://ui5.sap.com
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: info-prod_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: info-prod_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - Agorainfoprodinfoprodui.zip
+      name: Agorainfoprodinfoprodui
+      target-path: resources/
+- name: Agorainfoprodinfoprodui
+  type: html5
+  path: app/infoprod-ui
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: info-prod-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+- name: info-prod_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: info-prod_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: info-prod-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: false
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: info-prod-destination-service
+    service-plan: lite
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npx -p @sap/cds-dk cds build --production
