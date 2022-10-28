@@ -110,7 +110,7 @@
                         </smartForm:Group>
                         <smartForm:Group title="{i18n>precisions}">
                             <smartForm:GroupElement>
-                                <smartField:SmartField value="{nom_residence}"/>
+                                <smartField:SmartField value="{nom_residence}" width="100%"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
                                 <smartField:SmartField value="{surface}"/>
