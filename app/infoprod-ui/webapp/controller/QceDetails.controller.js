@@ -9,14 +9,14 @@ sap.ui.define([
     function (BaseController, BusyIndicator, MessageToast) {
         "use strict";
 
-        return BaseController.extend("Agora.infoprod.infoprodui.controller.QciDetails", {
+        return BaseController.extend("Agora.infoprod.infoprodui.controller.QceDetails", {
 
             /* =========================================================== */
             /* lifecycle methods                                           */
             /* =========================================================== */
 
             onInit: function () {
-                this.getRouter().getRoute("QciDetails").attachPatternMatched(this._onObjectMatched, this);
+                this.getRouter().getRoute("QceDetails").attachPatternMatched(this._onObjectMatched, this);
             },
 
             /* =========================================================== */
@@ -24,12 +24,10 @@ sap.ui.define([
             /* =========================================================== */
 
             _onObjectMatched: function (oEvent) {
-                let iSiteId = oEvent.getParameter("arguments").idSite,
-                    sPath = this.getView().getModel().createKey("/Site", {
-                        id_site: iSiteId
-                    });
+                let iMissionId = oEvent.getParameter("arguments").idMission,
+                    sPath = `/Mission(${iMissionId})`;
 
-                this.getView().byId("sfSiteDetails").bindElement({
+                this.getView().byId("sfMissionDetails").bindElement({
                     path: sPath,
                     events: {
                         dataReceived: (data) => {
@@ -45,18 +43,6 @@ sap.ui.define([
             /* event handlers                                              */
             /* =========================================================== */
 
-            onChauffageSelection: function (oEvent) {
-                let sPath = oEvent.getSource().getBindingContext().getPath(),
-                    iSelectedIndex = oEvent.getParameter("selectedIndex");
-
-                this.getView().getModel().setProperty(sPath + "/chauffage_dpe", !iSelectedIndex);
-            },
-            onClientPrescripteurSelection: function (oEvent) {
-                let sPath = oEvent.getSource().getBindingContext().getPath(),
-                    iSelectedIndex = oEvent.getParameter("selectedIndex");
-
-                this.getView().getModel().setProperty(sPath + "/client_prescripteur", !!iSelectedIndex);
-            },
             onSaveForm: function () {
                 let oDataModel = this.getView().getModel(),
                     oResourceBundle = this.getResourceBundle();
@@ -84,7 +70,7 @@ sap.ui.define([
                     oDataModel.resetChanges();
                 }
 
-                this.getRouter().navTo("InfoProdQci");
+                this.getRouter().navTo("InfoProdQce");
             },
             onNavToHomepage: function () {
                 let oDataModel = this.getView().getModel();

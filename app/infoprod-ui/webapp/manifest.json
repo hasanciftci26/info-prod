@@ -69,7 +69,10 @@
             },
             "": {
                 "dataSource": "mainService",
-                "preload": true
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
+                }
             }
         },
         "resources": {
@@ -117,6 +120,13 @@
                     "target": [
                         "QciDetails"
                     ]
+                },
+                {
+                    "name": "QceDetails",
+                    "pattern": "mission/{idMission}",
+                    "target": [
+                        "QceDetails"
+                    ]
                 }
             ],
             "targets": {
@@ -147,6 +157,13 @@
                     "clearControlAggregation": false,
                     "viewId": "QciDetails",
                     "viewName": "QciDetails"
+                },
+                "QceDetails": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "QceDetails",
+                    "viewName": "QceDetails"
                 }
             }
         },

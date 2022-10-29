@@ -8,6 +8,11 @@ sap.ui.define([
         "use strict";
 
         return BaseController.extend("Agora.infoprod.infoprodui.controller.Homepage", {
+
+            /* =========================================================== */
+            /* lifecycle methods                                           */
+            /* =========================================================== */
+
             onAfterRendering: function () {
                 this.getView().getModel().read("/Site/$count", {
                     filters: null,
@@ -27,6 +32,11 @@ sap.ui.define([
                     }
                 });
             },
+
+            /* =========================================================== */
+            /* event handlers                                              */
+            /* =========================================================== */
+
             onNavToApplication(sApplication) {
                 this.getRouter().navTo(sApplication);
             }

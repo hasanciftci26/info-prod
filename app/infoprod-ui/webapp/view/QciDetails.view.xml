@@ -1,4 +1,5 @@
-<mvc:View controllerName="Agora.infoprod.infoprodui.controller.QciDetails"
+<mvc:View xmlns:core="sap.ui.core"
+    controllerName="Agora.infoprod.infoprodui.controller.QciDetails"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -9,7 +10,8 @@
         showHeader="false">
         <content>
             <f:ShellBar title="{i18n>qualiConsult} - {i18n>infoProd}"
-                homeIcon="./img/qualiconsult.png">
+                homeIcon="./img/qualiconsult.png"
+                homeIconPressed="onNavToHomepage">
                 <f:profile>
                     <Avatar initials="UI"/>
                 </f:profile>
@@ -55,7 +57,8 @@
                         </smartForm:Group>
                         <smartForm:Group title=" ">
                             <smartForm:GroupElement>
-                                <smartField:SmartField value="{adresse_proprio}"/>
+                                <smartField:SmartField value="{adresse_proprio}"
+                                    width="100%"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
                                 <smartField:SmartField value="{port_locataire}"/>
@@ -66,7 +69,8 @@
                         </smartForm:Group>
                         <smartForm:Group title="{i18n>diagnostiquer}">
                             <smartForm:GroupElement>
-                                <smartField:SmartField value="{site}"/>
+                                <smartField:SmartField value="{site}"
+                                    width="100%"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
                                 <smartField:SmartField value="{nbpiece}"/>
@@ -85,16 +89,19 @@
                                 <smartField:SmartField value="{id_site}"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
-                                <smartField:SmartField value="{voie}"/>
+                                <smartField:SmartField value="{voie}"
+                                    width="100%"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
-                                <smartField:SmartField value="{cpladresse}"/>
+                                <smartField:SmartField value="{cpladresse}"
+                                    width="100%"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
                                 <smartField:SmartField value="{codepostal}"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
-                                <smartField:SmartField value="{pays}"/>
+                                <smartField:SmartField value="{pays}"
+                                    width="100%"/>
                             </smartForm:GroupElement>
                         </smartForm:Group>
                         <smartForm:Group title=" ">
@@ -105,12 +112,14 @@
                                 <smartField:SmartField value="{code_site}"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
-                                <smartField:SmartField value="{ville}"/>
+                                <smartField:SmartField value="{ville}"
+                                    width="100%"/>
                             </smartForm:GroupElement>
                         </smartForm:Group>
                         <smartForm:Group title="{i18n>precisions}">
                             <smartForm:GroupElement>
-                                <smartField:SmartField value="{nom_residence}" width="100%"/>
+                                <smartField:SmartField value="{nom_residence}"
+                                    width="100%"/>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
                                 <smartField:SmartField value="{surface}"/>
@@ -138,7 +147,8 @@
                                     columns="2"
                                     select="onChauffageSelection">
                                     <RadioButton text="{i18n>collectif}"/>
-                                    <RadioButton text="{i18n>individuel}" class="sapUiTinyMarginBegin"/>
+                                    <RadioButton text="{i18n>individuel}"
+                                        class="sapUiTinyMarginBegin"/>
                                 </RadioButtonGroup>
                             </smartForm:GroupElement>
                         </smartForm:Group>
@@ -149,8 +159,23 @@
                             <smartForm:GroupElement>
                                 <smartField:SmartField value="{type_inspection}"/>
                             </smartForm:GroupElement>
-                            <smartForm:GroupElement>
-                                <smartField:SmartField value="{usage}"/>
+                            <smartForm:GroupElement label="{i18n>usage}">
+                                <Select selectedKey="{usage}">
+                                    <items>
+                                        <core:Item key="HAB"
+                                            text="{i18n>usageOption1}"/>
+                                        <core:Item key="MIX"
+                                            text="{i18n>usageOption2}"/>
+                                        <core:Item key="AGR"
+                                            text="{i18n>usageOption3}"/>
+                                        <core:Item key="IND"
+                                            text="{i18n>usageOption4}"/>
+                                        <core:Item key="TER"
+                                            text="{i18n>usageOption5}"/>
+                                        <core:Item key="IRT"
+                                            text="{i18n>usageOption6}"/>
+                                    </items>
+                                </Select>
                             </smartForm:GroupElement>
                             <smartForm:GroupElement>
                                 <smartField:SmartField value="{annee}"/>
@@ -186,6 +211,76 @@
                                 <smartField:SmartField value="{num_park}"/>
                             </smartForm:GroupElement>
                         </smartForm:Group>
+                        <smartForm:Group title="{i18n>proprietaire}">
+                            <smartForm:GroupElement label="{i18n>presence}">
+                                <RadioButtonGroup selectedIndex="{presence}">
+                                    <RadioButton text="{i18n>presenceOption1}"/>
+                                    <RadioButton text="{i18n>presenceOption2}"/>
+                                    <RadioButton text="{i18n>presenceOption3}"/>
+                                    <RadioButton text="{i18n>presenceOption4}"/>
+                                </RadioButtonGroup>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title=" ">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{rep1}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{rep2}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title="{i18n>cles}">
+                            <smartForm:GroupElement label="{i18n>prendreLesCles}">
+                                <RadioButtonGroup selectedIndex="{prise_cle}">
+                                    <RadioButton text="{i18n>priseCleOption1}"/>
+                                    <RadioButton text="{i18n>priseCleOption2}"/>
+                                    <RadioButton text="{i18n>priseCleOption3}"/>
+                                    <RadioButton text="{i18n>priseCleOption4}"/>
+                                </RadioButtonGroup>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement label="{i18n>rendreLesCles}">
+                                <RadioButtonGroup selectedIndex="{rendre_cle}">
+                                    <RadioButton text="{i18n>rendreCleOption1}"/>
+                                    <RadioButton text="{i18n>rendreCleOption2}"/>
+                                    <RadioButton text="{i18n>rendreCleOption3}"/>
+                                </RadioButtonGroup>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title=" ">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nom_gardien}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{tel_gardien}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{nom_gardien2}"/>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{tel_gardien2}"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title="{i18n>votrePreferenceDossier}">
+                            <smartForm:GroupElement label="{i18n>clientPrescripteur}">
+                                <RadioButtonGroup selectedIndex="{= ${client_prescripteur} ? 1:0}"
+                                    columns="2"
+                                    select="onClientPrescripteurSelection">
+                                    <RadioButton text="{i18n>non}"/>
+                                    <RadioButton text="{i18n>oui}"
+                                        class="sapUiTinyMarginBegin"/>
+                                </RadioButtonGroup>
+                            </smartForm:GroupElement>
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{observation}"
+                                    width="100%"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
+                        <smartForm:Group title=" ">
+                            <smartForm:GroupElement>
+                                <smartField:SmartField value="{indication}"
+                                    width="100%"/>
+                            </smartForm:GroupElement>
+                        </smartForm:Group>
                     </smartForm:SmartForm>
                 </VBox>
             </FlexBox>
@@ -202,7 +297,8 @@
                         </layoutData>
                     </Button>
                     <Button type="Reject"
-                        text="{i18n>annuler}">
+                        text="{i18n>annuler}"
+                        press="onCancelChanges">
                         <layoutData>
                             <OverflowToolbarLayoutData priority="NeverOverflow" />
                         </layoutData>

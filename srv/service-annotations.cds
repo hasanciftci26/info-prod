@@ -107,12 +107,29 @@ annotate service.Site with {
     surface         @readonly;
 };
 
+annotate service.Mission {
+    agence      @readonly;
+    num_contrat @readonly;
+    dateDebut   @readonly;
+    dateFin     @readonly;
+    client      @readonly;
+    description @readonly;
+};
+
 // ----------------------------------------------------------------------------------------------------------
 // Annotation Multi-line Section
 // ----------------------------------------------------------------------------------------------------------
 
 annotate service.Site with {
-    nom_residence @UI.MultiLineText;
+    site            @UI.MultiLineText;
+    voie            @UI.MultiLineText;
+    cpladresse      @UI.MultiLineText;
+    pays            @UI.MultiLineText;
+    adresse_proprio @UI.MultiLineText;
+    ville           @UI.MultiLineText;
+    indication      @UI.MultiLineText;
+    observation     @UI.MultiLineText;
+    nom_residence   @UI.MultiLineText;
 };
 
 // ----------------------------------------------------------------------------------------------------------

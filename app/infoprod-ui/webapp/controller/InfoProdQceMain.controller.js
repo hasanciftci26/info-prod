@@ -8,8 +8,19 @@ sap.ui.define([
         "use strict";
 
         return BaseController.extend("Agora.infoprod.infoprodui.controller.InfoProdQceMain", {
-            onInit: function () {
 
+            /* =========================================================== */
+            /* event handlers                                              */
+            /* =========================================================== */
+
+            onNavToDetails: function (oEvent) {
+                let iMissionId = oEvent.getSource().getBindingContext().getProperty("id_mission");
+                this.getRouter().navTo("QceDetails", {
+                    idMission: iMissionId
+                });
+            },
+            onNavToHomepage: function () {
+                this.getRouter().navTo("Homepage");
             }
         });
     });

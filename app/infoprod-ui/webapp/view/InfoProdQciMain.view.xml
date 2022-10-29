@@ -9,7 +9,8 @@
         showHeader="false">
         <content>
             <f:ShellBar title="{i18n>qualiConsult} - {i18n>infoProd}"
-                homeIcon="./img/qualiconsult.png">
+                homeIcon="./img/qualiconsult.png"
+                homeIconPressed="onNavToHomepage">
                 <f:profile>
                     <Avatar initials="UI"/>
                 </f:profile>
