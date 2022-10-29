@@ -2,7 +2,7 @@ using {managed} from '@sap/cds/common';
 
 namespace Agora.infoprod;
 
-entity Site {
+entity Site : managed {
     key id_site             : Integer;
         code_site           : String(50);
         site                : String(500);
@@ -62,7 +62,7 @@ entity Site {
         indication          : String(2000);
 };
 
-entity Mission {
+entity Mission : managed {
     key id_mission     : Int64;
         photoObs       : Boolean;
         pagegardephoto : Boolean;
