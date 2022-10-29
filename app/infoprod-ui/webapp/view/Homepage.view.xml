@@ -18,14 +18,14 @@
                 <HBox width="95%">
                     <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginTop tileLayout"
                         header="{i18n>infoProdQci}"
-                        press="onNavToApplication('InfoProdQci')">
+                        press="onNavToApplication('QciMain')">
                         <TileContent footer="{i18n>totalEntries}">
                             <NumericContent id="numInfoProdQci"/>
                         </TileContent>
                     </GenericTile>
                     <GenericTile class="sapUiTinyMarginBegin sapUiSmallMarginTop tileLayout"
                         header="{i18n>infoProdQce}"
-                        press="onNavToApplication('InfoProdQce')">
+                        press="onNavToApplication('QceMain')">
                         <TileContent footer="{i18n>totalEntries}">
                             <NumericContent id="numInfoProdQce"/>
                         </TileContent>

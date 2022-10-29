@@ -7,7 +7,7 @@ sap.ui.define([
     function (BaseController) {
         "use strict";
 
-        return BaseController.extend("Agora.infoprod.infoprodui.controller.InfoProdQceMain", {
+        return BaseController.extend("Agora.infoprod.infoprodui.controller.QceMain", {
 
             /* =========================================================== */
             /* event handlers                                              */

@@ -84,7 +84,7 @@ sap.ui.define([
                     oDataModel.resetChanges();
                 }
 
-                this.getRouter().navTo("InfoProdQci");
+                this.getRouter().navTo("QciMain");
             },
             onNavToHomepage: function () {
                 let oDataModel = this.getView().getModel();

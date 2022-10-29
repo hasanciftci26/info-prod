@@ -101,17 +101,17 @@
                     ]
                 },
                 {
-                    "name": "InfoProdQci",
+                    "name": "QciMain",
                     "pattern": "qci",
                     "target": [
-                        "InfoProdQci"
+                        "QciMain"
                     ]
                 },
                 {
-                    "name": "InfoProdQce",
+                    "name": "QceMain",
                     "pattern": "qce",
                     "target": [
-                        "InfoProdQce"
+                        "QceMain"
                     ]
                 },
                 {
@@ -137,19 +137,19 @@
                     "viewId": "Homepage",
                     "viewName": "Homepage"
                 },
-                "InfoProdQci": {
+                "QciMain": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
-                    "viewId": "InfoProdQciMain",
-                    "viewName": "InfoProdQciMain"
+                    "viewId": "QciMain",
+                    "viewName": "QciMain"
                 },
-                "InfoProdQce": {
+                "QceMain": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
-                    "viewId": "InfoProdQceMain",
-                    "viewName": "InfoProdQceMain"
+                    "viewId": "QceMain",
+                    "viewName": "QceMain"
                 },
                 "QciDetails": {
                     "viewType": "XML",

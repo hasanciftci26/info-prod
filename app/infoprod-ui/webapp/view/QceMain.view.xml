@@ -1,11 +1,11 @@
-<mvc:View controllerName="Agora.infoprod.infoprodui.controller.InfoProdQciMain"
+<mvc:View controllerName="Agora.infoprod.infoprodui.controller.QceMain"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
     xmlns:smartTable="sap.ui.comp.smarttable"
     xmlns:f="sap.f">
-    <Page id="InfoProdQciMain"
+    <Page id="QceMain"
         showHeader="false">
         <content>
             <f:ShellBar title="{i18n>qualiConsult} - {i18n>infoProd}"
@@ -17,14 +17,14 @@
             </f:ShellBar>
             <FlexBox justifyContent="Center">
                 <VBox width="95%" class="sapUiMediumMarginTop">
-                    <smartFilterBar:SmartFilterBar id="sfbSite"
-                        entitySet="Site"
-                        persistencyKey="sfbSite_PersKey"
+                    <smartFilterBar:SmartFilterBar id="sfbMission"
+                        entitySet="Mission"
+                        persistencyKey="sfbMission_PersKey"
                         showFilterConfiguration="false">
                     </smartFilterBar:SmartFilterBar>
-                    <smartTable:SmartTable id="stSite"
-                        entitySet="Site"
-                        smartFilterId="sfbSite"
+                    <smartTable:SmartTable id="stMission"
+                        entitySet="Mission"
+                        smartFilterId="sfbMission"
                         tableType="ResponsiveTable"
                         enableExport="false"
                         showTablePersonalisation="false">
