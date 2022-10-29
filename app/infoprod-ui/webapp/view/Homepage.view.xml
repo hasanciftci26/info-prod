@@ -35,9 +35,3 @@
         </content>
     </Page>
 </mvc:View>
-
-
-<!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="Site" persistencyKey="SmartFilter_Explored">
-            </smartFilterBar:SmartFilterBar>
-            <smartTable:SmartTable id="LineItemsSmartTable" entitySet="Site" smartFilterId="smartFilterBar" tableType="ResponsiveTable">
-            </smartTable:SmartTable> -->
